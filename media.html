@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Preview - Anna Behler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --base: #ffffff;
+            --contrast: #1a2b3c;
+            --soft-background: #f1f3f5;
+            --accent: #005a9c;
+            --content-width: 800px;
+            --wide-width: 1100px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--base);
+            color: var(--contrast);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling with Accent Color */
+        header {
+            background-color: var(--contrast);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: var(--wide-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .site-title {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.4rem;
+        }
+
+        .site-tagline {
+            margin: 0.35rem 0 0 0;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero Section */
+        main {
+            max-width: var(--wide-width);
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--soft-background);
+        }
+
+        .hero-pic {
+            flex: 0 0 280px;
+        }
+
+        .hero-pic img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--soft-background);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin: 0 0 1.5rem 0;
+            color: var(--contrast);
+            line-height: 1.1;
+        }
+
+        .hero-title {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 1.5rem 0;
+            color: var(--contrast);
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            max-width: 600px;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--soft-background);
+            color: var(--contrast);
+            text-decoration: none;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        /* Horizontal Project Slider */
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .slider-btn {
+            background: var(--soft-background);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--contrast);
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .project-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .project-slider::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari */
+        }
+
+        .project-card {
+            flex: 0 0 400px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--soft-background);
+            transition: transform 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-media {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: var(--soft-background);
+            display: block;
+        }
+
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .project-info h3 {
+            margin: 0 0 1rem 0;
+            color: var(--contrast);
+        }
+
+
+        .bio-section {
+            margin-bottom: 6rem;
+        }
+
+        .bio-section h2 {
+            margin-top: 2.5rem;
+        }
+
+        .bio-section ul {
+            padding-left: 1.2rem;
+            display: grid;
+            gap: 0.6rem;
+            color: #4a5568;
+        }
+
+
+        .publications-section {
+            margin-top: 5rem;
+        }
+
+        .scholar-link {
+            margin: 1rem 0 2rem;
+        }
+
+        .scholar-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .pub-list {
+            list-style: disc;
+            padding-left: 1.2rem;
+            display: grid;
+            gap: 1rem;
+            color: #4a5568;
+        }
+
+        .pub-list a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .pub-list a:hover {
+            text-decoration: underline;
+        }
+
+
+        .media-section {
+            margin-top: 5rem;
+        }
+
+        .media-card {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .media-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .media-list {
+            list-style: disc;
+            padding-left: 1.2rem;
+            display: grid;
+            gap: 0.75rem;
+            color: #4a5568;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--soft-background);
+            padding: 5rem;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--contrast);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 5rem 0;
+            background: var(--soft-background);
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto;
+            }
+
+            .hero-links {
+                justify-content: center;
+            }
+
+            .project-card {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+
+<header>
+        <div class="header-content">
+            <div>
+                <div class="site-title">Dr Anna Behler</div>
+                <div class="site-tagline">Computational Neuroimaging &amp; Data-Driven Brain Health Insights</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="bio.html">Bio</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="index.html#featured">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+<section class="media-section">
+            <h1>Media</h1>
+            <div class="media-card">
+                <img class="media-photo"
+                    src="assets/images/0761FF03-5123-447D-9C41-D04C4548C5D3_1_105_c.jpeg"
+                    alt="In the ABC Newcastle Drive studio">
+                <ul class="media-list">
+                    <li>ABC Newcastle Drive with Jenny Marchant (July 28, 2025) — “Assessing hearing by vision.” Audio no
+                        longer available.</li>
+                    <li>ABC Newcastle Drive with Jenny Marchant (December 9, 2025) — “What ASMR does to your brain.”
+                        Audio no longer available.</li>
+
+                <li><a href="https://hmri.org.au/first-researchers-announced-for-accelerator-program-tackling-sepsis-stroke-ivf-and-hearing/">HMRI news: First researchers announced for accelerator program tackling sepsis, stroke, IVF and hearing</a> (May 22, 2025) — includes my project on assessing hearing through visual behaviour.</li>
+                <li><a href="https://hmri.org.au/the-science-behind-asmr-and-its-benefits-for-stress-and-relaxation/">HMRI news: The science behind ASMR and its benefits for stress and relaxation</a> (December 3, 2025) — features my comments on ASMR and brain mechanisms.</li>
+                </ul>
+            </div>
+        </section>
+</main>
+
+<footer>
+        <p>I acknowledge the Awabakal and Worimi peoples, the Traditional Custodians of the land on which I live and
+            work, and pay my respects to Elders past and present.</p>
+        <p>&copy; 2026 Dr Anna Behler. Created for Excellence in Science.</p>
+    </footer>
+
+</body>
+
+</html>
