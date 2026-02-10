@@ -97,25 +97,25 @@
         }
 
         .hero-pic {
-            flex: 0 0 280px;
+            flex: 0 0 320px;
         }
 
         .hero-pic img {
-            width: 150%;
+            width: 100%;
             height: auto;
             border-radius: 20px;
             box-shadow: 20px 20px 0 var(--soft-background);
         }
 
         .hero-text h1 {
-            font-size: 2rem;
+            font-size: 3rem;
             margin: 0 0 1.5rem 0;
             color: var(--contrast);
             line-height: 1.1;
         }
 
         .hero-title {
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -213,7 +213,7 @@
         .project-card {
             flex: 0 0 400px;
             scroll-snap-align: start;
-            background: white;
+            background: var(--contrast);
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--soft-background);
@@ -248,9 +248,13 @@
             text-align: center;
         }
 
+        .project-info p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
         .project-info h3 {
             margin: 0 0 1rem 0;
-            color: var(--contrast);
+            color: #ffffff;
         }
 
 
@@ -389,8 +393,6 @@
 
 <body>
 
-    <body>
-
 <header>
         <div class="header-content">
             <div>
@@ -420,8 +422,8 @@
                     data. I build reproducible pipelines and apply statistical modelling and machine learning to reveal
                     patterns in brain health, from structural and functional MRI analytics to eye-tracking phenotyping
                     and translational applications in ageing and neurodegeneration.</p>
-                <p>I live and work on the lands of the Awabakal people. My work is based at the University of Newcastle, Australia,
-                    and the Hunter Medical Research Institute (HMRI).</p>
+                <p>I live and work on the lands of the Awabakal people. My research is based at the University of Newcastle, Australia,
+                    and the Hunter Medical Research Institute.</p>
                 <div class="hero-links">
                     <a class="social-link" href="https://www.linkedin.com/in/dr-anna-behler-33872b190"
                         aria-label="LinkedIn">
@@ -445,7 +447,7 @@
 
         <section class="projects-section" id="featured">
             <div class="projects-header">
-                <h2>Featured Projects</h2>
+                <h2>Featured</h2>
                 <div class="slider-controls">
                     <button class="slider-btn"
                         onclick="document.querySelector('.project-slider').scrollBy({left: -400, behavior: 'smooth'})">←</button>
@@ -503,9 +505,9 @@
         
 
         <section class="contact-section">
-            <h2>Let's connect</h2>
+            <h2>Let's connect </h2
             <p>Whether you’re a student, researcher, or industry partner, I’d love to hear from you. Let’s explore
-                ideas over coffee or a quick message.</p>
+                ideas over coffee, a video call or a quick message.</p>
             <a href="#" class="contact-btn">Send Message</a>
         </section>
     </main>
@@ -513,7 +515,7 @@
 <footer>
         <p>I acknowledge the Awabakal and Worimi peoples, the Traditional Custodians of the land on which I live and
             work, and pay my respects to Elders past and present.</p>
-        <p>&copy; 2026 Dr Anna Behler.</p>
+        <p>&copy; 2026 Dr Anna Behler</p>
     </footer>
 
 </body>
