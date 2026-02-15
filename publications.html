@@ -7,32 +7,74 @@
     <title>Theme Preview - Anna Behler</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --base: #ffffff;
-            --contrast: #1a2b3c;
-            --soft-background: #f1f3f5;
-            --accent: #005a9c;
+            --base: #FEFAE0;
+            --surface: #FFFFFF;
+            --ink: #283618;
+            --ink-strong: #283618;
+            --accent: #DDA15E;
+            --accent-strong: #BC6C25;
+            --border: rgba(40, 54, 24, 0.18);
+            --shadow-sm: 0 8px 20px rgba(40, 54, 24, 0.12);
+            --shadow-md: 0 16px 32px rgba(40, 54, 24, 0.18);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 28px;
+            --space-1: 0.5rem;
+            --space-2: 0.75rem;
+            --space-3: 1rem;
+            --space-4: 1.5rem;
+            --space-5: 2rem;
+            --space-6: 3rem;
+            --space-7: 4rem;
             --content-width: 800px;
             --wide-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Lato', sans-serif;
             background-color: var(--base);
-            color: var(--contrast);
-            line-height: 1.6;
+            color: var(--ink);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
         }
 
-        /* Header Styling with Accent Color */
+        img,
+        video {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--accent-strong);
+            text-decoration: none;
+            transition: color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--ink);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid rgba(221, 161, 94, 0.75);
+            outline-offset: 3px;
+        }
+
         header {
-            background-color: var(--contrast);
-            color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #606C38;
+            color: #FEFAE0;
+            padding: 1.25rem 0;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid rgba(254, 250, 224, 0.2);
         }
 
         .header-content {
@@ -41,114 +83,146 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: var(--space-4);
             padding: 0 2rem;
         }
 
         .site-title {
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.4rem;
+            letter-spacing: 0.14em;
+            font-size: 1.1rem;
         }
 
         .site-tagline {
             margin: 0.35rem 0 0 0;
             font-size: 0.75rem;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(254, 250, 224, 0.75);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
             margin: 0;
             padding: 0;
         }
 
         nav a {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(254, 250, 224, 0.9);
             font-size: 0.95rem;
             font-weight: 600;
-            transition: color 0.3s;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
         }
 
         nav a:hover {
-            color: white;
+            color: #FEFAE0;
+            border-color: #FEFAE0;
         }
 
-        /* Hero Section */
         main {
             max-width: var(--wide-width);
-            margin: 4rem auto;
+            margin: 3.5rem auto 5rem;
             padding: 0 2rem;
         }
 
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--ink-strong);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 2.4vw, 2rem);
+        }
+
+        p {
+            color: rgba(40, 54, 24, 0.9);
+            font-size: 1.05rem;
+        }
+
+        /* Hero Section */
         .hero {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            margin-bottom: 6rem;
-            padding-bottom: 4rem;
-            border-bottom: 1px solid var(--soft-background);
+            gap: var(--space-6);
+            margin-bottom: 5rem;
+            padding: var(--space-6);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
         }
 
         .hero-pic {
-            flex: 0 0 280px;
+            flex: 0 0 clamp(220px, 28vw, 320px);
         }
 
         .hero-pic img {
             width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 20px 20px 0 var(--soft-background);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(40, 54, 24, 0.1);
+            box-shadow: 0 20px 32px rgba(40, 54, 24, 0.18);
+            background: #FEFAE0;
         }
 
         .hero-text h1 {
-            font-size: 3rem;
-            margin: 0 0 1.5rem 0;
-            color: var(--contrast);
-            line-height: 1.1;
+            margin: 0 0 1.25rem 0;
         }
 
         .hero-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            margin: 0 0 1.5rem 0;
-            color: var(--contrast);
+            margin: 0 0 1.2rem 0;
+            color: #606C38;
             line-height: 1.2;
         }
 
         .hero-text p {
-            font-size: 1.3rem;
-            color: #4a5568;
-            max-width: 600px;
+            font-size: 1.1rem;
+            max-width: 60ch;
         }
 
         .hero-links {
             display: flex;
             gap: 0.75rem;
             flex-wrap: wrap;
-            margin-top: 1.5rem;
+            margin-top: 1.75rem;
         }
 
         .social-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--soft-background);
-            color: var(--contrast);
+            background: var(--surface);
+            color: var(--ink-strong);
             text-decoration: none;
-            padding: 0.5rem 0.9rem;
+            padding: 0.55rem 1rem;
             border-radius: 999px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: background 0.3s, color 0.3s;
+            border: 1px solid rgba(40, 54, 24, 0.12);
+            box-shadow: 0 8px 18px rgba(40, 54, 24, 0.08);
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
         }
 
         .social-link svg {
@@ -158,11 +232,20 @@
         }
 
         .social-link:hover {
-            background: var(--accent);
-            color: #ffffff;
+            background: #283618;
+            color: #FEFAE0;
+            transform: translateY(-2px);
         }
 
         /* Horizontal Project Slider */
+        .projects-section {
+            background: var(--surface);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
         .projects-header {
             display: flex;
             justify-content: space-between;
@@ -176,8 +259,8 @@
         }
 
         .slider-btn {
-            background: var(--soft-background);
-            border: none;
+            background: var(--base);
+            border: 1px solid rgba(40, 54, 24, 0.16);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -186,13 +269,13 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            color: var(--contrast);
-            transition: all 0.3s;
+            color: var(--ink-strong);
+            transition: all 0.2s ease;
         }
 
         .slider-btn:hover {
-            background: var(--accent);
-            color: white;
+            background: #DDA15E;
+            color: #283618;
         }
 
         .project-slider {
@@ -200,38 +283,44 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 2rem;
-            padding-bottom: 2rem;
-            scrollbar-width: none;
-            /* Firefox */
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(40, 54, 24, 0.35) transparent;
         }
 
         .project-slider::-webkit-scrollbar {
-            display: none;
-            /* Chrome/Safari */
+            height: 8px;
+        }
+
+        .project-slider::-webkit-scrollbar-thumb {
+            background: rgba(40, 54, 24, 0.35);
+            border-radius: 999px;
         }
 
         .project-card {
-            flex: 0 0 400px;
+            flex: 0 0 380px;
             scroll-snap-align: start;
-            background: white;
-            border-radius: 12px;
+            background: var(--surface);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            border: 1px solid var(--soft-background);
-            transition: transform 0.3s;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 22px rgba(40, 54, 24, 0.12);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-align: center;
             display: flex;
             flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
         }
 
         .project-media {
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
-            background: var(--soft-background);
+            background: #FEFAE0;
             display: block;
         }
 
@@ -244,15 +333,17 @@
         }
 
         .project-info {
-            padding: 2rem;
-            text-align: center;
+            padding: 1.75rem 2rem 2rem;
+            text-align: left;
+        }
+
+        .project-info p {
+            color: rgba(40, 54, 24, 0.9);
         }
 
         .project-info h3 {
-            margin: 0 0 1rem 0;
-            color: var(--contrast);
+            margin: 0 0 0.8rem 0;
         }
-
 
         .bio-section {
             margin-bottom: 6rem;
@@ -266,12 +357,11 @@
             padding-left: 1.2rem;
             display: grid;
             gap: 0.6rem;
-            color: #4a5568;
+            color: rgba(40, 54, 24, 0.92);
         }
 
-
         .publications-section {
-            margin-top: 5rem;
+            margin-top: 2rem;
         }
 
         .scholar-link {
@@ -285,14 +375,22 @@
 
         .pub-list {
             list-style: none;
-            padding-left: 1.2rem;
+            padding-left: 0;
             display: grid;
-            gap: 1rem;
-            color: #4a5568;
+            gap: 1.25rem;
+            color: rgba(40, 54, 24, 0.92);
+        }
+
+        .pub-list li {
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 18px rgba(40, 54, 24, 0.08);
         }
 
         .pub-list a {
-            color: var(--accent);
+            color: var(--accent-strong);
             text-decoration: none;
         }
 
@@ -300,9 +398,8 @@
             text-decoration: underline;
         }
 
-
         .media-section {
-            margin-top: 5rem;
+            margin-top: 2rem;
         }
 
         .media-card {
@@ -315,7 +412,9 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(40, 54, 24, 0.12);
+            box-shadow: 0 10px 18px rgba(40, 54, 24, 0.1);
         }
 
         .media-list {
@@ -323,73 +422,185 @@
             padding-left: 1.2rem;
             display: grid;
             gap: 0.75rem;
-            color: #4a5568;
+            color: rgba(40, 54, 24, 0.92);
+        }
+
+        .media-list a {
+            color: var(--accent-strong);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .media-list a:hover {
+            text-decoration: underline;
+        }
+
+        .media-meta {
+            color: rgba(40, 54, 24, 0.8);
+            font-size: 1rem;
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: var(--soft-background);
-            padding: 5rem;
-            border-radius: 24px;
+            background-color: #283618;
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
             text-align: center;
-            margin-top: 6rem;
+            margin-top: 5rem;
+            color: #FEFAE0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-section p {
+            color: #FEFAE0;
         }
 
         .contact-section h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 3vw, 2.6rem);
             margin-bottom: 1rem;
-            color: var(--contrast);
+            color: #FEFAE0;
         }
 
         .contact-btn {
             display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            background-color: #DDA15E;
+            color: #283618;
+            padding: 0.95rem 2.4rem;
+            border-radius: 999px;
             text-decoration: none;
             font-weight: 700;
             margin-top: 2rem;
-            transition: transform 0.3s;
+            border: 1px solid rgba(254, 250, 224, 0.4);
+            transition: transform 0.2s ease, background 0.2s ease;
         }
 
         .contact-btn:hover {
-            transform: scale(1.05);
+            background: #BC6C25;
+            color: #FEFAE0;
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
-            padding: 5rem 0;
-            background: var(--soft-background);
-            color: #718096;
-            font-size: 0.9rem;
+            padding: 4rem 1.5rem;
+            background: #283618;
+            color: #FEFAE0;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            color: #FEFAE0;
         }
 
         @media (max-width: 900px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
             .hero {
                 flex-direction: column;
-                text-align: center;
+                text-align: left;
                 gap: 2rem;
+                padding: var(--space-5);
             }
 
             .hero-text p {
-                margin: 0 auto;
+                margin: 0;
             }
 
             .hero-links {
-                justify-content: center;
+                justify-content: flex-start;
             }
+
+            .project-card {
+                flex: 0 0 80%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem 0;
+            }
+
+            .header-content {
+                padding: 0 1.25rem;
+            }
+
+            main {
+                margin: 2.5rem auto 4rem;
+                padding: 0 1.25rem;
+            }
+
+            .hero {
+                padding: var(--space-4);
+            }
+
+            .projects-section,
+            .contact-section {
+                padding: var(--space-5);
+            }
+
+        .contact-section p {
+            color: #FEFAE0;
+        }
 
             .project-card {
                 flex: 0 0 100%;
             }
         }
+
+        .media-blocks {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 1000px) {
+            .media-blocks {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+            }
+        }
+
+        .media-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: grid;
+            gap: 1rem;
+            box-shadow: 0 12px 22px rgba(40, 54, 24, 0.08);
+        }
+
+        .media-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .media-photo {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: var(--radius-sm);
+        }
+
+        @media (min-width: 900px) {
+            .media-grid {
+                grid-template-columns: 220px 1fr;
+                align-items: start;
+            }
+        }
+    
     </style>
 </head>
 
 <body>
 
-    <body>
 
 <header>
         <div class="header-content">
@@ -425,11 +636,11 @@
                     <em>Journal of Alzheimer's Disease</em>, (2026) in press
                 <li>Faucher*, C., <strong>Behler*, A.</strong>, Campbell, M.E.J., and Thienel, R., “Effect of brief dog-assisted
                     interventions on psychobiological indicators of stress: a systematic review.” <em>Anxiety, Stress, &amp;
-                    Coping</em>em> (2025), doi: <a
+                    Coping</em> (2025), doi: <a
                         href="https://doi.org/10.1080/10615806.2025.2505902">10.1080/10615806.2025.2505902</a> *shared
                     first-authorship</li>
                 <li>Jamadar, S.D., <strong>Behler, A.</strong>, Deery, H., and Breakspear, M., “The metabolic costs of cognition” <em>Trends in
-                    Cognitive Sciences</em>em> (2024), doi: <a
+                    Cognitive Sciences</em> (2024), doi: <a
                         href="https://doi.org/10.1016/j.tics.2024.11.010">10.1016/j.tics.2024.11.010</a></li>
                 <li>Thienel*, R., Borne*, L., Faucher*, C., <strong>Behler, A.</strong>, …, Breakspear, M., and Lupton, M.K., “Can an online
                     battery match in-person cognitive testing in providing information about age-related cortical
